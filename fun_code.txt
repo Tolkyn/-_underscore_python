@@ -1,0 +1,312 @@
+#each function 
+_________________________
+pin=[1,2,3,4,5]
+
+def fun(i):
+    l=i+2
+    print(l)
+
+def each(j, c):
+    for i in j:
+        c(i) # c is function
+        print('It is K: ',с)
+
+each(pin, fun)
+---------------------------
+еще одна версия each 08_09_2020
+def each (arg):
+    for i in arg:
+        print(i)
+
+set=['m', 'mm', 'dcf', 'dv', 'vhd', 'dfdf']
+each(set)
+
+#map function 
+___________________________
+pin=[1,2,3,4,5]
+
+def fun(i):
+    l=i*2+2
+    return(l)
+
+def map(j, c):
+    new_a=[]
+    for i in j:
+        c(i) # c is function
+        new_a.append(c(i))
+    print('It is new arr: ', new_a)
+    
+map(pin, fun)
+
+
+#reduce function 
+_________________________
+pin=[1,2,3,4,5]
+
+def fun(i):
+    l=i*2+2
+    return(l)
+
+def reduce(j, c):
+    new=0
+    for i in j:
+        c(i) # c is function
+        new=new+c(i)
+    print('It is sum of:  ', new)
+
+map(pin, fun)
+
+#reduceRight function 
+____________________________
+def fun(i):
+    l=i*2+2
+    return(l)
+
+def reduce(j, c):
+    new=0
+    for i in reversed(j):
+        new=new+c(i)
+        print(new)
+pin=[1,2,3,4,5,6]
+reduce(pin, fun )
+___________________________
+
+#find function 
+__________________________
+def fun(i):
+    l=i*2+2
+    return(l)
+
+def find(j, c):
+    new=[]
+    for i in j:
+        c(i)
+        if c(i)>10:
+            new.append(i)
+            print(new)
+        else:
+            continue
+pin=[1,2,3,4,5,6]
+find(pin, fun )
+__________________________
+
+#filter function 
+__________________________
+def fun(i):
+    l=i*2+2
+    return(l)
+
+def find(j, c):
+    new=[]
+    pred=True
+    for i in j:
+        c(i)
+        if c(i)<8:
+            new.append(c(i))
+            print(new)
+        else:
+            continue
+
+pin=[1,2,3,4,5,6]
+find(pin, fun )
+___________________________
+
+#where (не работает)
+___________________________
+a=[1,2,3,4,5,6,7,8]
+def something(j):
+    for i in j:
+        c=dict.fromkeys(a, 'something')
+    return(c)
+
+
+
+def WHERE(q, w):
+    print(q(w))
+    for k in q(w):
+        if k=={1: 'something'}:
+            print('bingo')
+        else:
+            print(k)
+            print('ops')
+
+WHERE(something, a)
+______________________________
+#FIND_WHERE 
+# just function with BREAK, it is 
+a=[1,2,3,4,5,6,7,8]
+def something(j):
+    for i in j:
+        c=dict.fromkeys(a, 'something')
+    return(c)
+
+
+
+def FIND_WHERE(q, w):
+    print(q(w))
+    for k in q(w):
+        if k==1:
+            print(k)
+            break 
+        else:
+           print('no one')
+
+FIND_WHERE(something, a)
+_________________________
+#REJECT()
+____________________________
+l=[3,4,5,6,7,7,8,8,9,9,0,12]
+def modify(i):
+    set=[]
+    for element in i:
+        element=element+3
+        set.append(element)
+    return (set)
+
+def reject(a, b):
+    new=a(b)
+    print(new)
+    for i in new:
+        if i%2==0:
+            new.remove(i)
+        else:
+            continue
+    print(new)
+
+reject(modify,l)
+__________________________
+#every
+__________________________
+l=[3,4,5,6,7,7,8,8,9,9,0,12]
+def modify(i):
+    set=[]
+    for element in i:
+        element=element+3
+        set.append(element)
+    return (set)
+
+def EVERY(a, b):
+    new=True
+    while new is True:
+        for i in a(b):
+            if i%2==0:
+                new=True
+            else:
+                new=False
+    print(new)
+EVERY(modify,l)
+__________________________
+#some
+__________________________
+l=[3,4,5,6,7,7,8,8,9,9,0,12]
+def modify(i):
+    set=[]
+    for element in i:
+        element=element+3
+        set.append(element)
+    return (set)
+
+def SOME(a, b):
+    new=True
+    for i in a(b):
+        if i%2==0:
+            new=True
+            break
+        else:
+            new=False
+    print(new)
+SOME(modify,l)
+__________________________
+#Contains
+__________________________
+
+l=[3,4,5,6,7,7,8,8,9,9,0,12]
+
+value = input("What do u want to find ?")
+
+def modify(i):
+    set=[]
+    for element in i:
+        element = element+3
+        set.append(element)
+    print(set)
+    return (set)
+
+def CONTAINS(a, b, value):
+    new= True
+    for i in a(b):
+        if i==value:
+            new=True
+            break
+        else:
+            new=False
+            continue
+    print('This is the result:', new)
+CONTAINS(modify,l, value)
+______________________________________
+#invoke
+--------------------------------------
+l=[[3,9,5,6,7,3,8], [8,9,9,0,12], [8,9,10,2,5,1]]
+
+def modify(var):
+    c=[]
+    b=[]
+    for i in var:
+        for j in i:
+            j=j+8
+            c.append(j)
+        b.append(c)
+    print('It is B:', b)
+    return (b)
+
+
+def INVOKE(f,a):
+    new=f(a)
+    d=[]
+    for k in new:
+        k=k.sort()
+        d.append(k)
+
+    print('It is d:', k)
+
+INVOKE(modify, l)
+______________________________________________________
+#plack 
+______________________________________________________
+s = [{'name': 'moe', 'age': 40}, {'name': 'larry', 'age': 50}, {'name': 'curly', 'age': 60}]
+def modify(i):
+   t={'name':'Tolkyn','age':21}
+   i.append(t)
+   print(i)
+   return (i)
+
+# show=input('what do u want to see?')
+def pack(modify, l):
+   set=[]
+   for i in modify(l):
+      set.append(i['name'])
+   print(set)
+
+pack(modify,s)
+____________________________________________________
+#max
+____________________________________________________
+s = [{'name': 'moe', 'age': 40}, {'name': 'larry', 'age': 50}, {'name': 'curly', 'age': 60}]
+def modify(i):
+   t={'name':'Tolkyn','age':21}
+   i.append(t)
+   print(i)
+   return (i)
+
+# show=input('what do u want to see?')
+def pack(modify, l):
+   set=[]
+   for i in modify(l):
+      set.append(i['age'])
+   maximum=max(set)
+   print(set, 'max of set:', maximum)
+pack(modify,s)
+
+
+
+
