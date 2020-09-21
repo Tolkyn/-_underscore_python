@@ -1,6 +1,6 @@
 import imp
-#connection with our library
-library_1 = imp.load_source('call_function', 'C:\\Users\\User\\Desktop\\задачи\\call_function.py')
+#connection with library
+library_1 = imp.load_source('Functions_set', 'C:\\Users\\User\\Desktop\\задачи\\Functions_set.py')
 #массив котрый мы хотим обработать:
 p=[1,2,3,4,5, 4, 21, 2, 3, 42, 35, 3, 45]
 
