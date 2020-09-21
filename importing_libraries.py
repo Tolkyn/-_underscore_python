@@ -10,18 +10,5 @@ def list_modifie(i):
     for elem in i:
         box.append(elem**3+2)
     return(box)
-#calling function, one method from our library
-# library_1.MIN(list_modifie, p) #right code
-
-# Function for group by: # 18 problem
-def group_by_condi(m):
-    odd=[]
-    even=[]
-    for i in m:
-        if i%2==0:
-            even.append(i)
-        else:
-            odd.append(i)
-            return even
-# group_by_condi(p)
-library_1.GroupBy(list_modifie, p)
+#calling function/one method from our library
+library_1.MIN(list_modifie, p) #right code
